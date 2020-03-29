@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { bus } from '@/bus'
 export default {
   data () {
     return {
@@ -31,9 +32,19 @@ export default {
       keepSignedIn: false,
     }
   },
+  mounted () {
+    bus.$on('navigate', this.reset)
+  },
   methods: {
     submit () {
       this.$emit('do-sign-in', { ...this.$data })
+    },
+    reset (selected) {
+      if (selected === 'signup') {
+        this.username =  ''
+        this.password =  ''
+        this.keepSignedIn =  false
+      }
     }
   }
 }
