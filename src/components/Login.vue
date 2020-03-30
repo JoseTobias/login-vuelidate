@@ -97,6 +97,13 @@ export default {
 .login-form .group{
 	margin-bottom:15px;
 }
+.login-form .group label.invalid{
+	color: red;
+}
+.login-form .group input[type="text"].invalid,
+.login-form .group input[type="password"].invalid{
+	border: red 1px solid;
+}
 .login-form .group .label,
 .login-form .group .input,
 .login-form .group .button{
