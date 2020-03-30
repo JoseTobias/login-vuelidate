@@ -5,7 +5,7 @@
       <input id="tab-2" type="radio" value="signup" v-model="navigation" @change="navigate" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
       <div class="login-form">
         <sign-in @do-sign-in="doSignIn" />
-        <sign-up />
+        <sign-up @do-sign-up="doSignUp" />
       </div>
     </div>
   </div>
@@ -32,6 +32,9 @@ export default {
 	},
 	navigate () {
       bus.$emit('navigate', this.navigation)
+	},
+	doSignUp (obj) {
+      console.log(obj)
 	}
   }
 }
