@@ -17,6 +17,13 @@ describe('Sign-in.vue', () => {
     expect(wrapper.isVueInstance(wrapper)).toBeTruthy()
   })
 
+  test('Data ok', () => {
+    const expected = ['username', 'password', 'keepSignedIn']
+    const received = Object.keys(wrapper.vm.$data)
+    expect(received).toEqual(expected)
+  })
+  
+
   test('should $invalid == false when all fields are filled', () => {
     setData(wrapper)
     expect(wrapper.vm.$v.$invalid).toBeFalsy()
@@ -36,6 +43,21 @@ describe('Sign-in.vue', () => {
       password: 'test',
       keepSignedIn: false
     })
+  })
+  
+  test('All states and tools return to first state when reset is executed', () => {
+    setData(wrapper)
+    wrapper.vm.reset()
+
+    expect(wrapper.vm.$data.username).toBe('test')
+    expect(wrapper.vm.$data.password).toBe('test')
+    expect(wrapper.vm.$v.$invalid).toBeFalsy()
+
+    wrapper.vm.reset('signup')
+
+    expect(wrapper.vm.$data.username).toBe('')
+    expect(wrapper.vm.$data.password).toBe('')
+    expect(wrapper.vm.$v.$invalid).toBeTruthy()
   })
   
 
