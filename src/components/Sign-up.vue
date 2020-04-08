@@ -13,8 +13,8 @@
       <input @input="$v.password2.$touch()" :class="{ invalid: $v.password2.$dirty && $v.password2.$invalid }" id="sign-up-pass2" type="password" class="input" data-type="password" v-model="password2">
     </div>
     <div class="group">
-      <label :class="{ invalid: $v.email.$dirty && $v.email.$invalid }" for="pass" class="label">Email Address</label>
-      <input @input="$v.email.$touch()" :class="{ invalid: $v.email.$dirty && $v.email.$invalid }" id="pass" type="text" class="input" v-model="email">
+      <label :class="{ invalid: $v.email.$dirty && $v.email.$invalid }" for="email" class="label">Email Address</label>
+      <input @input="$v.email.$touch()" :class="{ invalid: $v.email.$dirty && $v.email.$invalid }" id="email" type="text" class="input" v-model="email">
     </div>
     <div class="group">
       <input type="submit" class="button" value="Sign Up">
